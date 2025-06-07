@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  ml-laboratory-work-1-api:
+    build: .
+    container_name: ml-laboratory-work-1-api
+    ports:
+      - "8111:8000"
+    volumes:
+      - .:/app
