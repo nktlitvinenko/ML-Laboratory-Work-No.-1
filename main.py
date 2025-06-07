@@ -4,13 +4,15 @@ import onnxruntime as ort
 from PIL import Image
 import numpy as np
 import io
-from torchvision.datasets import CIFAR100
+import json
 
 app = FastAPI()
 
-class_names = CIFAR100(root="./data", train=False, download=True).classes
 mean = np.array([0.5071, 0.4867, 0.4408])
 std = np.array([0.2675, 0.2565, 0.2761])
+
+with open("class_names.json", "r") as f:
+    class_names = json.load(f)
 
 session = ort.InferenceSession("resnet18_pretrained.onnx", providers=["CPUExecutionProvider"])
 

@@ -3,5 +3,4 @@ uvicorn
 onnxruntime
 pillow
 numpy
-torchvision
 python-multipart
